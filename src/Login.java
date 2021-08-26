@@ -17,7 +17,6 @@ public class Login extends JFrame {
     private JButton loginButton;
     private JTextField usernameTextField;
     private JTextField passwordTextField;
-    private JPanel registrationPanel;
     private JLabel registerLabel;
 
     public Login(String title) {
@@ -103,6 +102,8 @@ public class Login extends JFrame {
 
             }
 
+
+            //mouse hover effect
             @Override
             public void mouseEntered(MouseEvent e) {
                 registerLabel.setForeground(new Color(245, 91, 36));
@@ -115,9 +116,6 @@ public class Login extends JFrame {
 
         });
     }
-
-
-
 
     public static void main(String[] args) {
         JFrame frame = new Login("FoodApp-Login");

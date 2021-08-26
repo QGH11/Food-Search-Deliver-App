@@ -1,12 +1,393 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Home">
-  <grid id="27dc6" binding="homePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="homePanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="-53" width="1150" height="700"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-855310"/>
+      <enabled value="false"/>
+      <foreground color="-855310"/>
+      <minimumSize width="1150" height="700"/>
+      <preferredSize width="1150" height="700"/>
+    </properties>
     <border type="none"/>
-    <children/>
+    <children>
+      <grid id="c0191" binding="paymentPanel" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-2119867"/>
+          <minimumSize width="0" height="500"/>
+          <preferredSize width="100" height="500"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="8651d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="15" bottom="5" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <labelFor value="c80a8"/>
+              <minimumSize width="144" height="35"/>
+              <text value="Current Address"/>
+              <verticalAlignment value="0"/>
+              <verticalTextPosition value="0"/>
+            </properties>
+          </component>
+          <component id="53b82" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="10" left="15" bottom="5" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="125" height="35"/>
+              <text value="Food Category"/>
+            </properties>
+          </component>
+          <component id="c80a8" class="javax.swing.JTextField" binding="addressTextField">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="125" height="-1"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <margin top="2" left="6" bottom="2" right="6"/>
+              <minimumSize width="49" height="40"/>
+              <preferredSize width="49" height="40"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="6b442" class="javax.swing.JComboBox" binding="foodCategoryComboBox">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="30"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <font name="Fira Code"/>
+              <minimumSize width="84" height="40"/>
+              <model>
+                <item value="Healthy"/>
+                <item value="Junk Food"/>
+                <item value="Others"/>
+              </model>
+            </properties>
+          </component>
+          <component id="72e3a" class="javax.swing.JComboBox" binding="hungryLevelComboBox">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="30"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <font name="Fira Code"/>
+              <minimumSize width="84" height="40"/>
+              <model>
+                <item value="Take your Time"/>
+                <item value="Haven't eaten in 3 days"/>
+              </model>
+            </properties>
+          </component>
+          <component id="f5768" class="javax.swing.JComboBox" binding="deliveryOptionsComboBox">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="30"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <font name="Fira Code"/>
+              <minimumSize width="84" height="40"/>
+              <model>
+                <item value="Pick Up"/>
+                <item value="Bot Delivery (Free)"/>
+                <item value="Human Delivery ($100)"/>
+              </model>
+            </properties>
+          </component>
+          <component id="cc751" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="10" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="154" height="35"/>
+              <text value="Delivery Options"/>
+            </properties>
+          </component>
+          <component id="72baa" class="javax.swing.JLabel" binding="cartTextLabel">
+            <constraints>
+              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="15" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="125" height="35"/>
+              <text value="Shopping Cart"/>
+            </properties>
+          </component>
+          <component id="78a" class="javax.swing.JLabel" binding="cartIconLabel">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="0" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <focusCycleRoot value="false"/>
+              <focusTraversalPolicyProvider value="false"/>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-16777216"/>
+              <icon value="Home-images/grocery-cart.png"/>
+              <inheritsPopupMenu value="true"/>
+              <minimumSize width="46" height="60"/>
+              <text value="0"/>
+            </properties>
+          </component>
+          <component id="c5b19" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="10" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="115" height="35"/>
+              <text value="Hungry Level"/>
+            </properties>
+          </component>
+          <component id="ee318" class="javax.swing.JLabel" binding="paymentLabel">
+            <constraints>
+              <grid row="10" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="50" left="15" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="173" height="35"/>
+              <preferredSize width="173" height="30"/>
+              <text value="Proceed To Payment"/>
+              <verticalAlignment value="3"/>
+              <verticalTextPosition value="3"/>
+            </properties>
+          </component>
+          <component id="aaec9" class="javax.swing.JTextField" binding="postalCodeTextField" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="10" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <margin top="2" left="6" bottom="2" right="6"/>
+              <minimumSize width="49" height="40"/>
+              <preferredSize width="82" height="40"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="2b096" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="15" bottom="5" right="15" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-855310"/>
+              <minimumSize width="106" height="35"/>
+              <text value="Postal Code"/>
+              <verticalAlignment value="3"/>
+              <verticalTextPosition value="3"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="c9bc" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <background color="-855310"/>
+          <minimumSize width="300" height="500"/>
+          <preferredSize width="800" height="500"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="50a26" class="javax.swing.JButton" binding="addToCartButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="50" bottom="15" right="50" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <contentAreaFilled value="false"/>
+              <minimumSize width="98" height="40"/>
+              <preferredSize width="500" height="40"/>
+              <text value="Add To Cart"/>
+            </properties>
+          </component>
+          <component id="3b587" class="javax.swing.JList" binding="list1" custom-create="true" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="387" height="50"/>
+              </grid>
+              <gridbag top="0" left="15" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <maximumSize width="800" height="1121231231"/>
+              <minimumSize width="800" height="-1"/>
+              <model/>
+              <preferredSize width="800" height="400"/>
+            </properties>
+          </component>
+          <component id="62b69" class="javax.swing.JSpinner" binding="quantitySpinner">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="387" height="30"/>
+              </grid>
+              <gridbag top="10" left="15" bottom="15" right="15" weightx="1.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <maximumSize width="150" height="30"/>
+              <minimumSize width="150" height="30"/>
+              <preferredSize width="150" height="30"/>
+            </properties>
+          </component>
+          <component id="81227" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="15" bottom="0" right="15" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Special Requst"/>
+            </properties>
+          </component>
+          <component id="5856a" class="javax.swing.JLabel" binding="Quantity">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag top="15" left="15" bottom="0" right="15" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Quantity"/>
+            </properties>
+          </component>
+          <component id="18314" class="javax.swing.JTextArea" binding="noneTextArea" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+              <gridbag top="10" left="15" bottom="15" right="15" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="12"/>
+              <margin top="2" left="2" bottom="2" right="2"/>
+              <minimumSize width="300" height="50"/>
+              <preferredSize width="400" height="100"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="5b56a" binding="headerPanel" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <minimumSize width="1000" height="0"/>
+          <opaque value="false"/>
+          <preferredSize width="1150" height="75"/>
+          <requestFocusEnabled value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="61f1e" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <minimumSize width="-1" height="-1"/>
+              <preferredSize width="300" height="-1"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="4a3eb" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag top="15" left="15" bottom="15" right="15" weightx="1.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <font name="Bauhaus 93" size="36" style="1"/>
+                  <foreground color="-2126936"/>
+                  <icon value="Home-images/fast-food.png"/>
+                  <minimumSize width="-1" height="-1"/>
+                  <preferredSize width="300" height="64"/>
+                  <text value="FOOD APP"/>
+                  <verticalAlignment value="0"/>
+                  <verticalTextPosition value="3"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="9f8a8" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="15" left="15" bottom="15" right="15"/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <background color="-855310"/>
+              <minimumSize width="576" height="-1"/>
+              <preferredSize width="700" height="-1"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="675a7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="Home-images/search.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="be3f5" class="javax.swing.JTextField" binding="searchForYourFavouriteTextField" default-binding="true">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="500" height="35"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Search for your favourite food!"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
   </grid>
 </form>
