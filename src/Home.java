@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
@@ -16,7 +18,7 @@ public class Home extends JFrame {
     private JTextField searchForYourFavouriteTextField;
     private JTextField addressTextField;
     private JComboBox foodCategoryComboBox;
-    private JList list1;
+    private JList productLists;
     private JComboBox hungryLevelComboBox;
     private JSpinner quantitySpinner;
     private JComboBox deliveryOptionsComboBox;
@@ -45,6 +47,9 @@ public class Home extends JFrame {
         //update the left side panel
         updateUserOptions();
 
+        //append customized jList
+        appendCustomizedJList();
+
         paymentLabel.addMouseListener(new MouseAdapter() {
             // go to payment
 
@@ -69,6 +74,15 @@ public class Home extends JFrame {
         });
     }
 
+    public void appendCustomizedJList() {
+        DefaultListModel productList = new DefaultListModel();
+        productList.clear();
+
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-images//fast-food.png")));
+        productLists.setCellRenderer(new Renderer());
+        productLists.setModel(productList);
+    }
+
     // update the GUI user food options
     public void updateUserOptions() {
         try {
@@ -91,10 +105,7 @@ public class Home extends JFrame {
         catch(Exception e) {e.printStackTrace();}
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
 
-    }
 
     // user food options class
     public class userFoodOptions {
