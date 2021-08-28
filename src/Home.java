@@ -31,6 +31,7 @@ public class Home extends JFrame {
     private JLabel Quantity;
     private JTextField postalCodeTextField;
     private JTextArea noneTextArea;
+    private JTextPane productDescriptionTextPane;
 
     //json
     private static FileWriter file;
@@ -76,10 +77,22 @@ public class Home extends JFrame {
 
     public void appendCustomizedJList() {
         DefaultListModel productList = new DefaultListModel();
+
         productList.clear();
 
-        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-images//fast-food.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
+        productList.addElement(new ImgsNText("Hamburger\n" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//hamburger.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
+        productList.addElement(new ImgsNText("Hamburger\n" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//hamburger.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
+        productList.addElement(new ImgsNText("Hamburger\n" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//hamburger.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
+        productList.addElement(new ImgsNText("Hamburger\n" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//hamburger.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
+        productList.addElement(new ImgsNText("Hamburger\n" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//hamburger.png")));
+        productList.addElement(new ImgsNText("Water" , new ImageIcon("D://Java//GUI//FoodApp//src//Home-Products//water.png")));
         productLists.setCellRenderer(new Renderer());
+
         productLists.setModel(productList);
     }
 

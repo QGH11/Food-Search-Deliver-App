@@ -5,6 +5,7 @@ public class ImgsNText {
     private String name;
     private Icon img;
 
+
     public ImgsNText(String text, Icon icon) {
         this.name = text;
         this.img = icon;
