@@ -23,7 +23,6 @@ public class Renderer extends DefaultListCellRenderer implements ListCellRendere
         setEnabled(true);
         setFont(list.getFont());
 
-
         return this;
     }
 }
