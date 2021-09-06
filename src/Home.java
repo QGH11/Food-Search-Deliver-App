@@ -1,12 +1,9 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
 import java.io.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,13 +18,10 @@ public class Home extends JFrame {
     private JComboBox hungryLevelComboBox;
     private JSpinner quantitySpinner;
     private JComboBox deliveryOptionsComboBox;
-    private JPanel headerPanel;
-    private JPanel paymentPanel;
     private JLabel cartIconLabel;
-    private JLabel cartTextLabel;
+    private JLabel accountLabel;
     private JLabel paymentLabel;
     private JButton addToCartButton;
-    private JLabel Quantity;
     private JTextField postalCodeTextField;
     private JTextArea specialRequestTextArea;
     private JEditorPane productDescriptionEditorPane;
@@ -49,13 +43,21 @@ public class Home extends JFrame {
     private static FileWriter file;
     private JSONObject tempUserFoodOptions = new JSONObject();
 
+    private shoppingList shoppingList;
+
 
     public Home(String title) {
         super(title);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(homePanel);
+        ImageIcon img = new ImageIcon("D://Java//GUI//FoodApp//src//Home-images//unicorn.png");
+        this.setIconImage(img.getImage());
         this.pack();
+
+        // round border
+        addToCartButton.setBorder(new RoundedBorder(20));
+        searchForYourFavouriteTextField.setBorder(new RoundedBorder(10));
 
         //update the left side panel
         updateUserOptions();
@@ -77,6 +79,37 @@ public class Home extends JFrame {
         SpinnerModel model = new SpinnerNumberModel(initValue, min, max, step);
         quantitySpinner.setModel(model);
 
+        //update the cart label
+        shoppingList = new shoppingList(0, 0, "");
+        shoppingList.readJson();
+        cartIconLabel.setText(Integer.toString(shoppingList.getShoppingList().size()));
+
+        productLists.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                // update the description
+                showProductDescription(productLists.getAnchorSelectionIndex());
+            }
+        });
+
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // add products to cart
+
+                int productIndex = productLists.getAnchorSelectionIndex();
+                int quantity = Integer.parseInt(quantitySpinner.getValue().toString());
+                String specialRequest = specialRequestTextArea.getText();
+
+                // create shopping list object
+                shoppingList = new shoppingList(productIndex,quantity,specialRequest);
+                shoppingList.writeJson();
+
+                //update the shopping cart label
+                cartIconLabel.setText(Integer.toString(shoppingList.getShoppingList().size()));
+            }
+        });
+
         paymentLabel.addMouseListener(new MouseAdapter() {
             // go to payment
 
@@ -86,6 +119,12 @@ public class Home extends JFrame {
 
                 storeUserOptions();
 
+                JFrame frame = new Payment("FoodApp-Payment");
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+                frame.setVisible(true);
+
+                dispose();
             }
 
             // mouse hover effect
@@ -100,25 +139,69 @@ public class Home extends JFrame {
             }
         });
 
-        productLists.addListSelectionListener(new ListSelectionListener() {
+        accountLabel.addMouseListener(new MouseAdapter() {
+            // go to account
+
             @Override
-            public void valueChanged(ListSelectionEvent e) {
-                // update the descroption
-                showProductDescription(productLists.getAnchorSelectionIndex());
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                storeUserOptions();
+
+                JFrame frame = new Account("FoodApp-Shopping Cart");
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+                frame.setVisible(true);
+
+                dispose();
+            }
+
+            // mouse hover effect
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                accountLabel.setForeground(new Color(245, 91, 36));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                accountLabel.setForeground( new Color(0, 0, 0) );
             }
         });
 
-        addToCartButton.addActionListener(new ActionListener() {
+        cartIconLabel.addMouseListener(new MouseAdapter() {
+            // go to account
+
+            Border raisedbevel, loweredbevel;
+
             @Override
-            public void actionPerformed(ActionEvent e) {
-                // add products to cart
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
 
-                // get all the information
+                storeUserOptions();
 
+                JFrame frame = new shoppingCart("FoodApp-Account");
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+                frame.setVisible(true);
 
+                dispose();
+            }
+
+            // mouse hover effect
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                loweredbevel = BorderFactory.createLoweredBevelBorder();
+                cartIconLabel.setBorder(loweredbevel);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                raisedbevel = BorderFactory.createRaisedBevelBorder();
+                cartIconLabel.setBorder(raisedbevel);
             }
         });
     }
+
 
     // show description of hovered product
     public void showProductDescription(int index) {
@@ -190,18 +273,18 @@ public class Home extends JFrame {
         String water = "  " + String.format("%-20s %3s",productArr[10][0], productArr[10][1]).replace(' ', '-');
 
 
-        productList.addElement(new ImgsNText(cheese , new ImageIcon(productArr[0][5])));
-        productList.addElement(new ImgsNText(donuts , new ImageIcon(productArr[1][5])));
-        productList.addElement(new ImgsNText(fries , new ImageIcon(productArr[2][5])));
-        productList.addElement(new ImgsNText(hamburgers , new ImageIcon(productArr[3][5])));
-        productList.addElement(new ImgsNText(hotDogs , new ImageIcon(productArr[4][5])));
-        productList.addElement(new ImgsNText(nachos , new ImageIcon(productArr[5][5])));
-        productList.addElement(new ImgsNText(nigiri , new ImageIcon(productArr[6][5])));
-        productList.addElement(new ImgsNText(pancakes , new ImageIcon(productArr[7][5])));
-        productList.addElement(new ImgsNText(pizza , new ImageIcon(productArr[8][5])));
-        productList.addElement(new ImgsNText(tacos , new ImageIcon(productArr[9][5])));
-        productList.addElement(new ImgsNText(water, new ImageIcon(productArr[10][5])));
-        productLists.setCellRenderer(new Renderer());
+        productList.addElement(new productListImgsNText(cheese , new ImageIcon(productArr[0][5])));
+        productList.addElement(new productListImgsNText(donuts , new ImageIcon(productArr[1][5])));
+        productList.addElement(new productListImgsNText(fries , new ImageIcon(productArr[2][5])));
+        productList.addElement(new productListImgsNText(hamburgers , new ImageIcon(productArr[3][5])));
+        productList.addElement(new productListImgsNText(hotDogs , new ImageIcon(productArr[4][5])));
+        productList.addElement(new productListImgsNText(nachos , new ImageIcon(productArr[5][5])));
+        productList.addElement(new productListImgsNText(nigiri , new ImageIcon(productArr[6][5])));
+        productList.addElement(new productListImgsNText(pancakes , new ImageIcon(productArr[7][5])));
+        productList.addElement(new productListImgsNText(pizza , new ImageIcon(productArr[8][5])));
+        productList.addElement(new productListImgsNText(tacos , new ImageIcon(productArr[9][5])));
+        productList.addElement(new productListImgsNText(water, new ImageIcon(productArr[10][5])));
+        productLists.setCellRenderer(new productListRenderer());
 
         productLists.setModel(productList);
     }
@@ -209,7 +292,7 @@ public class Home extends JFrame {
     // update the GUI user food options
     public void updateUserOptions() {
         try {
-            readJson();
+            readUserFoodOptions();
 
             String address = (String) tempUserFoodOptions.get("Address");
             String postalCode = (String) tempUserFoodOptions.get("PostalCode");
@@ -263,7 +346,7 @@ public class Home extends JFrame {
     }
 
     // read and return JSON file data
-    public void readJson() {
+    public void readUserFoodOptions() {
         JSONParser parser = new JSONParser();
 
         try {
@@ -297,10 +380,10 @@ public class Home extends JFrame {
         }
     }
 
-
     public static void main(String[] args) {
         JFrame frame = new Home("FoodApp-Home");
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 }

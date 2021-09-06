@@ -22,6 +22,8 @@ public class Registration extends JFrame {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(registrationPanel);
+        ImageIcon img = new ImageIcon("D://Java//GUI//FoodApp//src//Home-images//unicorn.png");
+        this.setIconImage(img.getImage());
         this.pack();
 
 
@@ -66,6 +68,7 @@ public class Registration extends JFrame {
                         //open the login form
                         JFrame frame = new Login("FoodApp-Login");
                         frame.setLocationRelativeTo(null);
+                        frame.setResizable(false);
                         frame.setVisible(true);
 
                         // close the registration form
@@ -112,6 +115,7 @@ public class Registration extends JFrame {
     public static void main(String[] arg) {
         JFrame frame = new Registration("FoodApp-Registration Form");
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 }

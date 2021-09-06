@@ -25,6 +25,9 @@ public class Login extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(loginPanel);
         this.pack();
+        ImageIcon img = new ImageIcon("D://Java//GUI//FoodApp//src//Home-images//unicorn.png");
+        this.setIconImage(img.getImage());
+
 
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -66,6 +69,7 @@ public class Login extends JFrame {
                                 //open the home page
                                 JFrame frame = new Home("FoodApp-Home");
                                 frame.setLocationRelativeTo(null);
+                                frame.setResizable(false);
                                 frame.setVisible(true);
 
                                 // close the login form
@@ -120,6 +124,7 @@ public class Login extends JFrame {
     public static void main(String[] args) {
         JFrame frame = new Login("FoodApp-Login");
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 }

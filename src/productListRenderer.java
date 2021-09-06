@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Renderer extends DefaultListCellRenderer implements ListCellRenderer<Object> {
+public class productListRenderer extends DefaultListCellRenderer implements ListCellRenderer<Object> {
     @Override
     public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 
         // assign to value that is passed
-        ImgsNText is = (ImgsNText) value;
+        productListImgsNText is = (productListImgsNText) value;
         setText(is.getName());
         setIcon(is.getImg());
 

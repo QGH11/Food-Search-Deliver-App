@@ -1,12 +1,12 @@
 import javax.swing.*;
 
 //model for custom row in a Jlist
-public class ImgsNText {
+public class productListImgsNText {
     private String name;
     private Icon img;
 
 
-    public ImgsNText(String text, Icon icon) {
+    public productListImgsNText(String text, Icon icon) {
         this.name = text;
         this.img = icon;
     }
