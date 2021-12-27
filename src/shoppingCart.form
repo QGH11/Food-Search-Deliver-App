@@ -9,6 +9,64 @@
       <preferredSize width="1000" height="600"/>
     </properties>
     <border type="none"/>
-    <children/>
+    <children>
+      <scrollpane id="3c809">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <minimumSize width="500" height="450"/>
+          <preferredSize width="500" height="450"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="805e" class="javax.swing.JTable" binding="shoppingListJTable">
+            <constraints/>
+            <properties>
+              <cellSelectionEnabled value="false"/>
+              <columnSelectionAllowed value="false"/>
+              <enabled value="true"/>
+              <showHorizontalLines value="false"/>
+              <showVerticalLines value="false"/>
+            </properties>
+            <clientProperties>
+              <terminateEditOnFocusLost class="java.lang.Boolean" value="true"/>
+            </clientProperties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="259cd" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <minimumSize width="0" height="150"/>
+          <preferredSize width="0" height="150"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="636d3" class="javax.swing.JButton" binding="continuePaymentButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Continue Payment"/>
+            </properties>
+          </component>
+          <component id="61814" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Keep Shopping"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
   </grid>
 </form>

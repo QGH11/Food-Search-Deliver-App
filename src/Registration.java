@@ -55,7 +55,7 @@ public class Registration extends JFrame {
 
                     try {
                         // connect to the data base
-                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodapp-login", "root", "qghqgh1111");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodapp-login", "root", "#");  // correct password needed
                         Statement statement = connection.createStatement();
 
                         String sql = "Insert into login values("+emailText+","+passwordsText+")";
