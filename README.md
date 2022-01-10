@@ -1,6 +1,6 @@
 # Food-Search-Deliver-App
 
-Login and Registration require connection to mySQL
+Login and Registration require connection to mySQL </br>
 
 Login:</br>
 ![Login](https://user-images.githubusercontent.com/76548491/147432907-e178eb0e-9404-4369-99c2-7d0f320c727f.png)</br>
